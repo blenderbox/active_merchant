@@ -48,7 +48,7 @@ module ActiveMerchant #:nodoc:
       end
 
       def create_profile(token, options = {})
-        requires!(options, :description, :start_date, :frequency, :amount, :address)
+        requires!(options, :description, :start_date, :frequency, :amount)
 
         commit 'CreateRecurringPaymentsProfile', build_create_profile_request(token, options)
       end
