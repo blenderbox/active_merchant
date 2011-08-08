@@ -48,7 +48,7 @@ module ActiveMerchant #:nodoc:
       end
 
       def create_profile(token, options = {})
-        requires!(options, :description, :start_date, :frequency, :amount)
+        requires!(options, :description, :start_date, :frequency, :amount, :address)
 
         commit 'CreateRecurringPaymentsProfile', build_create_profile_request(token, options)
       end
@@ -178,7 +178,7 @@ module ActiveMerchant #:nodoc:
                 xml.tag! 'n2:BillingStartDate', (options[:start_date].is_a?(Date) ? options[:start_date].to_time : options[:start_date]).utc.iso8601
                 xml.tag! 'n2:ProfileReference', '151821' # random reference number
                 # xml.tag! 'n2:SubscriberName', options[:subscriber_name] unless options[:subscriber_name].blank?
-                # add_address(xml, 'n2:SubscriberShippingAddress', (options[:shipping_address] || options[:address])) if options[:shipping_address] || options[:address]
+                add_address(xml, 'n2:SubscriberShippingAddress', (options[:shipping_address] || options[:address])) if options[:shipping_address] || options[:address]
               end
               xml.tag! 'n2:ScheduleDetails' do
                 xml.tag! 'n2:Description', options[:description]
