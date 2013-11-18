@@ -29,8 +29,8 @@ require 'active_support/core_ext/class/attribute'
 require 'active_support/core_ext/class/attribute_accessors'
 require 'active_support/core_ext/class/delegating_attributes'
 require 'active_support/core_ext/module/attribute_accessors'
-require 'active_support/base64'
-require 'active_support/secure_random'
+require 'base64'
+require 'securerandom'
 
 require 'builder'
 require 'cgi'
@@ -41,7 +41,7 @@ require 'active_merchant/billing'
 require 'active_merchant/version'
 
 module ActiveMerchant #:nodoc:
-  module Billing #:nodoc:    
+  module Billing #:nodoc:
     autoload :Integrations, 'active_merchant/billing/integrations'
   end
 end
