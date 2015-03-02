@@ -1,16 +1,8 @@
-source :rubygems
+source 'https://rubygems.org'
+gemspec
 
-gem 'activesupport', '>= 2.3.11'
-gem 'money'
-gem 'braintree', '>= 2.0.0'
-gem 'json', :platforms => :ruby_18
+gem 'builder', '~> 3.0'
+gem 'activesupport', '~> 3.2'
+gem 'rails', '~> 3.2'
 
-group :test do
-  gem 'rails', '>= 2.3.11'
-  gem 'i18n'
-  gem 'mocha'
-  gem 'rake'
-  gem 'mechanize'
-  gem 'launchy'
-end
-
+eval File.read(File.expand_path("../Gemfile_common", __FILE__))
