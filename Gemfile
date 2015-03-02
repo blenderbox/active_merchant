@@ -1,16 +1,9 @@
-source :rubygems
+source 'https://rubygems.org'
+gemspec
 
-gem 'activesupport', '>= 2.3.11'
-gem 'money'
-gem 'braintree', '>= 2.0.0'
-gem 'json', :platforms => :ruby_18
+gem 'jruby-openssl', :platforms => :jruby
 
-group :test do
-  gem 'rails', '>= 2.3.11'
-  gem 'i18n'
-  gem 'mocha'
-  gem 'rake'
-  gem 'mechanize'
-  gem 'launchy'
+group :test, :remote_test do
+  # gateway-specific dependencies, keeping these gems out of the gemspec
+  gem 'braintree', '>= 2.0.0'
 end
-
